@@ -18,7 +18,7 @@ export default function About() {
                 whileInView={{ opacity: 1 }}
                 transition={{ delay: 0.4, duration: 0.8 }}
             >
-                ITの専門学校でフロントエンドからバックエンドまで幅広く学んでいます。React、Flask、Javaを使った開発経験があり、遊び心あるUIやアニメーション表現を通して、ユーザーに驚きと楽しさを届けるのが得意です。
+                ITの専門学校でフロントエンドからバックエンドまで幅広く学んでいます。React、Flask、Java Pythonを使った開発経験があり、遊び心あるUIやアニメーション表現を通して、ユーザーに驚きと楽しさを届けるのが得意です。
             </motion.p>
         </section>
     );

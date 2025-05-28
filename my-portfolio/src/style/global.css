@@ -3,7 +3,6 @@ body {
     font-family: 'Yu Gothic', sans-serif;
     background-color: white;
     color: #1b1f3a;
-    /* ツバメ色 */
     overflow-x: hidden;
 }
 
@@ -28,7 +27,6 @@ body {
     font-size: 1.8rem;
     margin-top: 1rem;
     color: #c42b1c;
-    /* ツバメの赤 */
 }
 
 .bird-background {
@@ -36,7 +34,6 @@ body {
     width: 100%;
     height: 100%;
     background-image: url('/assets/tubame.png');
-    /* 燕のSVG画像（後で追加） */
     background-repeat: no-repeat;
     background-position: center;
     background-size: contain;
