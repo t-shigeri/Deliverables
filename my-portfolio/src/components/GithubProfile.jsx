@@ -26,8 +26,8 @@ export default function GithubProfile() {
                     className="github-avatar"
                 />
                 <div className="github-info">
-                    <h3><FaGithub /> enta-shigeri</h3>
-                    <p>React / javascript / Java / Pythonを中心に学んでいる専門学生。遊び心あるUIや、アニメーションに力を入れた開発が得意です。</p>
+                    <h3><FaGithub /> t-shigeri</h3>
+                    <p>javascript / Java / Pythonを中心に学んでいる専門学生。遊び心あるUIや、アニメーションに力を入れた開発が得意です。</p>
                     <a
                         href="https://github.com/t-shigeri
                         "
