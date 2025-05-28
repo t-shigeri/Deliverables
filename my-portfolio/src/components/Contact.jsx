@@ -4,11 +4,6 @@ import { motion } from 'framer-motion';
 export default function Contact() {
     const [submitted, setSubmitted] = useState(false);
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        setSubmitted(true);
-    };
-
     return (
         <section className="contact-section" id="contact">
             <motion.h2
@@ -23,7 +18,9 @@ export default function Contact() {
             {!submitted ? (
                 <motion.form
                     className="contact-form"
-                    onSubmit={handleSubmit}
+                    action="https://formspree.io/f/manorjzd"
+                    method="POST"
+                    onSubmit={() => setSubmitted(true)}
                     initial={{ opacity: 0 }}
                     whileInView={{ opacity: 1 }}
                     transition={{ delay: 0.4 }}
