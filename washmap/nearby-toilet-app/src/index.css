@@ -1,0 +1,39 @@
+/* src/index.css */
+
+/* シンプルなリセット */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body, #root {
+  width: 100%;
+  height: 100%;
+  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Arial", "sans-serif";
+}
+
+/* リストのスタイルをリセット */
+ul {
+  list-style: none;
+}
+
+/* リンク装飾なし */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* ボタンやインプットのフォーカス時のアウトライン除去（必要に応じて） */
+:focus {
+  outline: none;
+}
+
+/* スクロールバーを細くする簡易的なスタイル（ブラウザによって効かない場合あり） */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 3px;
+}
