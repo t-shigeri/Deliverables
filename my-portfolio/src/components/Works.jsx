@@ -4,11 +4,13 @@ import { motion } from 'framer-motion';
 const works = [
     {
         title: "トイレ検索アプリ",
-        description: "React + Google Maps API を使用して、現在地周辺のトイレを探せるチーム制作アプリ。デザインとUIを担当。",
+        description: "React + Google Maps API を使用して、現在地周辺のトイレを探せるアプリ。",
+        github: "https://github.com/t-shigeri/Deliverables/tree/main/washmap/nearby-toilet-app"
     },
     {
         title: "学生管理システム",
         description: "Java + JSP + H2 DB による学生情報管理。登録・更新・一覧表示機能を担当。MVC構成で開発。",
+        github: "https://github.com/t-shigeri/point"
     },
     {
         title: "顔認識アプリ",
@@ -39,6 +41,16 @@ export default function Works() {
                     >
                         <h3>{work.title}</h3>
                         <p>{work.description}</p>
+                        {work.github && (
+                            <a
+                                href={work.github}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="github-link"
+                            >
+                                GitHub リポジトリを見る →
+                            </a>
+                        )}
                     </motion.div>
                 ))}
             </div>
