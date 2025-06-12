@@ -18,6 +18,7 @@ const SEARCH_RADIUS = 1500;
 
 // Places API に投げるキーワード。「トイレ」で検索する
 const TOILET_KEYWORD = "トイレ";
+const TOILET_KEYWORD_EN = "toilet";
 
 const GoogleMapComponent = ({
   apiKey,

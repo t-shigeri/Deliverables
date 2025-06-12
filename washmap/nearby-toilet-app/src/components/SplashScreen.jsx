@@ -2,7 +2,6 @@ import React, { useEffect } from "react";
 
 const SplashScreen = ({ onFinish }) => {
   useEffect(() => {
-    // ここでは単純に 2 秒後にローディングを終了する
     const timer = setTimeout(() => {
       onFinish();
     }, 2000);
