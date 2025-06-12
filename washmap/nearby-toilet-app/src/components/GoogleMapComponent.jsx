@@ -1,24 +1,20 @@
 import React, { useState, useEffect } from "react";
 import { GoogleMap, LoadScript, Marker, InfoWindow } from "@react-google-maps/api";
 
-// マップコンテナのスタイル（親側で高さを担保しているなら height: "100%" にしてもOK）
+// マップコンテナのスタイル
 const containerStyle = {
   width: "100%",
   height: "100vh",
 };
 
-// マップの初期中心座標（東京駅を仮置き。Geolocation 取得後に上書き）
+// 東京駅を仮の初期値
 const defaultCenter = {
   lat: 35.681236,
   lng: 139.767125,
 };
 
-// 検索範囲（メートル）。この半径内を検索する。例：1500m
 const SEARCH_RADIUS = 1500;
-
-// Places API に投げるキーワード。「トイレ」で検索する
 const TOILET_KEYWORD = "トイレ";
-const TOILET_KEYWORD_EN = "toilet";
 
 const GoogleMapComponent = ({
   apiKey,
@@ -26,11 +22,11 @@ const GoogleMapComponent = ({
   selectedPlaceId,
   onSelectToilet,
 }) => {
-  const [location, setLocation] = useState(defaultCenter); // 現在地
-  const [mapInstance, setMapInstance] = useState(null);     // GoogleMap インスタンス
-  const [toilets, setToilets] = useState([]);               // トイレ施設一覧
+  const [location, setLocation] = useState(defaultCenter);
+  const [mapInstance, setMapInstance] = useState(null);
+  const [toilets, setToilets] = useState([]);
 
-  // ① Geolocation で現在地を取得
+  // 1. 現在地取得
   useEffect(() => {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(
@@ -42,30 +38,21 @@ const GoogleMapComponent = ({
         },
         (error) => {
           console.error("位置情報の取得に失敗しました:", error);
-          // 権限拒否などは defaultCenter のまま表示
+          // 権限拒否などは defaultCenter のまま
         }
       );
     }
   }, []);
 
-  // ② マップがロードされたときのコールバック
-  const handleOnLoad = (map) => {
-    setMapInstance(map);
-
-    // *** ここで PlacesService を利用するためには "places" ライブラリ読み込みが必須 ***
-    if (!window.google || !window.google.maps.places) {
-      console.error("PlacesService が利用できません。libraries に 'places' を含めてください。");
-      return;
-    }
-
-    // PlacesService を使って周辺トイレを検索
-    const service = new window.google.maps.places.PlacesService(map);
+  // 2. location/mapInstanceどちらか変化時にトイレ検索
+  useEffect(() => {
+    if (!mapInstance || !window.google || !window.google.maps.places) return;
+    const service = new window.google.maps.places.PlacesService(mapInstance);
     const request = {
       location,
       radius: SEARCH_RADIUS,
       keyword: TOILET_KEYWORD,
     };
-
     service.nearbySearch(request, (results, status) => {
       if (
         status === window.google.maps.places.PlacesServiceStatus.OK &&
@@ -77,17 +64,22 @@ const GoogleMapComponent = ({
         console.error("PlacesServiceNearbySearch エラー:", status);
       }
     });
+  }, [location, mapInstance]);
+
+  // 3. マップのロード時
+  const handleOnLoad = (map) => {
+    setMapInstance(map);
   };
 
-  // ③ マーカークリック時のコールバックを親へ
+  // 4. マーカークリック
   const handleMarkerClick = (place) => {
     onSelectToilet && onSelectToilet(place);
   };
 
-  // ④ 現在選択中の Place を toilets から探す
+  // 5. 選択中トイレ
   const selectedPlace = toilets.find((p) => p.place_id === selectedPlaceId);
 
-  // ⑤ アイコンの props を生成（window.google.maps が存在してから）
+  // 6. アイコン生成
   const createIcon = (url, size) => {
     if (window.google && window.google.maps) {
       return {
@@ -95,14 +87,14 @@ const GoogleMapComponent = ({
         scaledSize: new window.google.maps.Size(size, size),
       };
     }
-    // スクリプト読み込み前は null → デフォルトアイコンを利用
     return null;
   };
 
+  // 7. JSX return
   return (
     <LoadScript
       googleMapsApiKey={apiKey}
-      libraries={["places"]} // ← ここで必ず "places" を指定する
+      libraries={["places"]}
     >
       <GoogleMap
         mapContainerStyle={containerStyle}
@@ -110,33 +102,25 @@ const GoogleMapComponent = ({
         zoom={15}
         onLoad={handleOnLoad}
       >
-        {/* ① 現在地マーカー */}
-        {createIcon(
-          "https://maps.gstatic.com/mapfiles/api-3/images/spotlight-poi2_hdpi.png",
-          30
-        ) ? (
-          <Marker
-            position={location}
-            icon={createIcon(
-              "https://maps.gstatic.com/mapfiles/api-3/images/spotlight-poi2_hdpi.png",
-              30
-            )}
-            title="現在地"
-          />
-        ) : (
-          <Marker position={location} title="現在地" />
-        )}
+        {/* 現在地マーカー */}
+        <Marker
+          position={location}
+          icon={createIcon(
+            "https://maps.gstatic.com/mapfiles/api-3/images/spotlight-poi2_hdpi.png",
+            30
+          ) || undefined}
+          title="現在地"
+        />
 
-        {/* ② トイレマーカーをループで表示 */}
+        {/* トイレマーカー */}
         {toilets.map((place) => {
           const isSelected = selectedPlaceId === place.place_id;
           const iconUrl = isSelected
             ? "https://maps.google.com/mapfiles/ms/icons/red-dot.png"
             : "https://maps.google.com/mapfiles/ms/icons/blue-dot.png";
-
           const iconProps = createIcon(iconUrl, 32);
 
-          return iconProps ? (
+          return (
             <Marker
               key={place.place_id}
               position={{
@@ -144,21 +128,12 @@ const GoogleMapComponent = ({
                 lng: place.geometry.location.lng(),
               }}
               onClick={() => handleMarkerClick(place)}
-              icon={iconProps}
-            />
-          ) : (
-            <Marker
-              key={place.place_id}
-              position={{
-                lat: place.geometry.location.lat(),
-                lng: place.geometry.location.lng(),
-              }}
-              onClick={() => handleMarkerClick(place)}
+              icon={iconProps || undefined}
             />
           );
         })}
 
-        {/* ③ 選択中のトイレに InfoWindow を表示 */}
+        {/* 選択中トイレのInfoWindow */}
         {selectedPlace && (
           <InfoWindow
             position={{
