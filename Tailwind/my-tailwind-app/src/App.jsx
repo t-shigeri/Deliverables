@@ -1,36 +1,54 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import React, { useState } from "react";
+import TodoItem from "./components/TodoItem";
 
-function App() {
-  const [count, setCount] = useState(0)
+export default function App() {
+  const [todos, setTodos] = useState([]);
+  const [input, setInput] = useState("");
+
+  const addTodo = (e) => {
+    e.preventDefault();
+    if (input.trim() === "") return;
+    setTodos([...todos, { text: input, done: false }]);
+    setInput("");
+  };
+
+  const toggleTodo = (idx) => {
+    setTodos(todos.map((todo, i) =>
+      i === idx ? { ...todo, done: !todo.done } : todo
+    ));
+  };
+
+  const deleteTodo = (idx) => {
+    setTodos(todos.filter((_, i) => i !== idx));
+  };
 
   return (
-    <>
-      <h1 className="text-3xl font-bold text-blue-500">Hello Tailwind!</h1>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <div className="min-h-screen flex items-center justify-center bg-gray-50">
+      <div className="bg-white shadow-lg rounded-xl p-6 w-full max-w-md">
+        <h1 className="text-2xl font-bold mb-4">Todo App</h1>
+        <form onSubmit={addTodo} className="flex gap-2 mb-4">
+          <input
+            className="border rounded px-2 py-1 flex-1"
+            type="text"
+            placeholder="やることを入力"
+            value={input}
+            onChange={e => setInput(e.target.value)}
+          />
+          <button className="bg-blue-500 text-white rounded px-4 py-1" type="submit">
+            追加
+          </button>
+        </form>
+        <ul className="space-y-2">
+          {todos.map((todo, idx) => (
+            <TodoItem
+              key={idx}
+              todo={todo}
+              onToggle={() => toggleTodo(idx)}
+              onDelete={() => deleteTodo(idx)}
+            />
+          ))}
+        </ul>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    </div>
+  );
 }
-
-export default App
