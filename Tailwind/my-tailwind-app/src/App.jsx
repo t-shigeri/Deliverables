@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import TodoItem from "./components/TodoItem";
+import TodoItem from "./components/Todoitem";
+import Header from "./components/Header";
 
 export default function App() {
   const [todos, setTodos] = useState([]);
@@ -23,8 +24,9 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-50">
-      <div className="bg-white shadow-lg rounded-xl p-6 w-full max-w-md">
+    <div className="min-h-screen flex flex-col items-center justify-center bg-gray-50">
+      <Header />
+      <div className="bg-white shadow-lg rounded-xl p-6 w-full max-w-md mt-6">
         <h1 className="text-2xl font-bold mb-4">Todo App</h1>
         <form onSubmit={addTodo} className="flex gap-2 mb-4">
           <input
