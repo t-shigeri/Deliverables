@@ -1,0 +1,14 @@
+body {
+  margin: 0;
+  font-family: 'Yu Gothic', sans-serif;
+  background-color: white;
+  color: #1b1f3a;
+  overflow-x: hidden;
+}
+
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}

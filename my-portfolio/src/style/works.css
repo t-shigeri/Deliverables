@@ -1,0 +1,43 @@
+.works-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 3rem;
+  padding: 2rem 1rem;
+  background-color: #f2f0ec; /* 淡いグレー背景 */
+}
+
+.work-card {
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  color: #000;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.work-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.work-image {
+  width: 100%;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.work-text {
+  margin-top: 1rem;
+  text-align: left;
+}
+
+.work-title {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #a38e6e;
+}
+
+.work-subtitle {
+  font-size: 0.9rem;
+  color: #333;
+  font-weight: bold;
+}

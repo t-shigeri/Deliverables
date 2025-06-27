@@ -1,14 +1,22 @@
-import { Link } from 'react-router-dom';
+import React from 'react';
+import { NavLink } from 'react-router-dom';
+import '../style/header.css';
 
-const Header = () => (
-  <header className="p-4 bg-white shadow-md">
-    <nav className="flex justify-center gap-6">
-      <Link to="/" className="hover:underline">ホーム</Link>
-      <Link to="/about" className="hover:underline">自己紹介</Link>
-      <Link to="/works" className="hover:underline">作品</Link>
-      <Link to="/contact" className="hover:underline">お問い合わせ</Link>
-    </nav>
-  </header>
-);
-
-export default Header;
+export default function Header() {
+  return (
+    <header className="header-sticky">
+      <div className="header-container">
+        <div className="logo">
+          <NavLink to="/">
+            <img src="/assets/tubame.png" alt="Logo" />
+          </NavLink>
+        </div>
+        <nav className="header-nav">
+          <NavLink to="/works" className={({ isActive }) => isActive ? 'active' : ''}>WORKS</NavLink>
+          <NavLink to="/about" className={({ isActive }) => isActive ? 'active' : ''}>ABOUT</NavLink>
+          <NavLink to="/contact" className={({ isActive }) => isActive ? 'active' : ''}>CONTACT</NavLink>
+        </nav>
+      </div>
+    </header>
+  );
+}

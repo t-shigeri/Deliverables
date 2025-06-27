@@ -1,0 +1,14 @@
+[
+  {
+    "image": "/assets/project1.png",
+    "title": "株式会社Miraie",
+    "subtitle": "ART DIRECTION , DESIGN",
+    "link": "https://example.com/miraie"
+  },
+  {
+    "image": "/assets/project2.png",
+    "title": "ACA Football Partners",
+    "subtitle": "LOGO DESIGN , WEB DESIGN",
+    "link": "https://example.com/aca"
+  }
+]
