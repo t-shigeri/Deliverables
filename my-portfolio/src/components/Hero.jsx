@@ -2,7 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import '../style/hero.css'; // 必ず追加すること！
 
-const name = "繁里燕太";
+const name = "Enta Shigeri";
 const catchphrase = "--Portfolio--";
 
 export default function Hero() {
