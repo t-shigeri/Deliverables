@@ -1,12 +1,15 @@
 .works-list {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: 3rem;
   padding: 2rem 1rem;
   background-color: #f2f0ec; /* 淡いグレー背景 */
 }
 
 .work-card {
+  width: 100%;
+  max-width: 500px;
   display: flex;
   flex-direction: column;
   text-decoration: none;
@@ -40,4 +43,16 @@
   font-size: 0.9rem;
   color: #333;
   font-weight: bold;
+}
+.works-wrapper {
+  padding: 2rem 1rem;
+  background-color: #f2f0ec;
+  min-height: 100vh;
+}
+
+.works-title {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 2rem;
 }
