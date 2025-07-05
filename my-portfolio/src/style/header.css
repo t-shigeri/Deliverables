@@ -3,7 +3,7 @@
   top: 0;
   background-color: transparent;
   z-index: 1000;
-  border-bottom: 1px solid  transparent;
+  border-bottom: 1px solid transparent;
 }
 
 .header-container {
@@ -54,6 +54,20 @@
   color: #c42b1c;
 }
 
-.logo img{
-    height: 65px;
+.logo img {
+  height: 80px;
+}
+
+.logo-image {
+   width: 80px;
+  height: 80px;
+  object-fit: contain;
+  content: url("/assets/logo1.png");
+  transition: 0.3s ease;
+}
+
+
+.logo-image:hover {
+  content: url("/assets/logo2.png");
+
 }
