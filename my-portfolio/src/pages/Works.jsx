@@ -1,9 +1,20 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import WorkCard from '../components/WorkCard';
 import '../style/works.css';
-import works from '../data/works.json';
 
 function Works() {
+  const [works, setWorks] = useState([]);
+
+  useEffect(() => {
+    fetch('/data/works.json')
+      .then((res) => {
+        if (!res.ok) throw new Error('データ取得失敗');
+        return res.json();
+      })
+      .then((data) => setWorks(data))
+      .catch((err) => console.error('Fetchエラー:', err));
+  }, []);
+
   return (
     <div className="works-wrapper">
       <h2 className="works-title">WORKS</h2>
