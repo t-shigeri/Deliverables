@@ -53,7 +53,7 @@ export default function Contact() {
                 </motion.form>
             ) : (
                 <motion.p
-                    className="thanks-message"
+                    className="thanks-message text-center text-[1.2rem] text-[#1b1f3a] mt-8"
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     transition={{ duration: 0.5 }}
