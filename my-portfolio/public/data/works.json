@@ -1,14 +1,14 @@
 [
     {
         "image": "/assets/portfolioimage.png",
-        "title": "ポートフォリオサイト",
-        "description": "ReactとViteで制作。私のポートフォリオ",
-        "link": "https://example.com/portfolio"
+        "title": "Portfolio",
+        "description": "",
+        "link": "https://deliverables.pages.dev"
     },
     {
-        "image": "/assets/pc.png",
-        "title": "トイレ検索アプリ",
-        "description": "React + Map API + Tailwindで開発。近くのトイレを検索することができる。",
+        "image": "/assets/WashMapPC.png",
+        "title": "WashMap",
+        "description": "",
         "link": "https://example.com/toilet-app"
     }
 ]

@@ -19,9 +19,9 @@ function Works() {
     <div className="works-wrapper">
       <h2 className="works-title">WORKS</h2>
       <div className="works-list">
-        {works.map((work, index) => (
+        {works.map((work) => (
           <WorkCard
-            key={index}
+            key={work.id || work.title} // IDがなければtitleを代用
             image={work.image}
             title={work.title}
             description={work.description}

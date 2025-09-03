@@ -32,8 +32,8 @@
   margin-top: 1rem;
   text-align: left;
 }
-
 .work-title {
+  text-align: center;
   font-size: 1.2rem;
   font-weight: bold;
   color: #a38e6e;
@@ -55,4 +55,10 @@
   font-size: 2rem;
   font-weight: bold;
   margin-bottom: 2rem;
+}
+
+.work-card a {
+  /* リンクの線消しだから消すな */
+  text-decoration: none;
+  color: inherit;
 }
