@@ -41,21 +41,21 @@
 /* Responsive: hero */
 @media (max-width: 640px) {
   .hero {
-    padding: 1.25rem;
-    height: 82vh;
+    padding: 1.5rem;
+    height: 80vh;
   }
 
   .hero-name {
-    font-size: 1.8rem;
-    letter-spacing: 0.12em;
+    font-size: 2rem;
+    letter-spacing: 0.15em;
   }
 
   .hero-tagline {
-    font-size: 1.1rem;
+    font-size: 1.2rem;
   }
 
   .bird-background {
-    background-size: 78%;
-    opacity: 0.3;
+    background-size: 80%;
+    opacity: 0.35;
   }
 }
