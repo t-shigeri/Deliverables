@@ -2,7 +2,7 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 3rem;
+  gap: 2.5rem;
   padding: 2rem 1rem;
   background-color: #f2f0ec;
 }
@@ -61,4 +61,25 @@
   /* リンクの線消しだから消すな */
   text-decoration: none;
   color: inherit;
+}
+
+/* Responsive: works */
+@media (max-width: 640px) {
+  .works-list {
+    gap: 1.25rem;
+    padding: 1.25rem 0.75rem;
+  }
+
+  .work-title {
+    font-size: 0.95rem;
+  }
+
+  .work-subtitle {
+    font-size: 0.85rem;
+  }
+
+  .works-title {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
 }

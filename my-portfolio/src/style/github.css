@@ -48,3 +48,30 @@
 .github-link:hover {
   text-decoration: underline;
 }
+
+/* Responsive: github */
+@media (max-width: 640px) {
+  .github-card {
+    flex-direction: column;
+    text-align: center;
+    gap: 1rem;
+    padding: 1.25rem;
+  }
+
+  .github-avatar {
+    width: 80px;
+    height: 80px;
+  }
+
+  .github-info h3 {
+    font-size: 1.25rem;
+  }
+
+  .github-info p {
+    font-size: 0.95rem;
+  }
+
+  .github-link {
+    margin-top: 0.5rem;
+  }
+}

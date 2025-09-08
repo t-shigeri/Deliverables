@@ -6,7 +6,7 @@
   height: 100vh;
   position: relative;
   text-align: center;
-  padding: 2rem; 
+  padding: 2rem;
   overflow: hidden; 
 }
 
@@ -36,4 +36,26 @@
   background-size: contain;
   opacity: 0.4;
   z-index: -2;
+}
+
+/* Responsive: hero */
+@media (max-width: 640px) {
+  .hero {
+    padding: 1.25rem;
+    height: 82vh;
+  }
+
+  .hero-name {
+    font-size: 1.8rem;
+    letter-spacing: 0.12em;
+  }
+
+  .hero-tagline {
+    font-size: 1.1rem;
+  }
+
+  .bird-background {
+    background-size: 78%;
+    opacity: 0.3;
+  }
 }

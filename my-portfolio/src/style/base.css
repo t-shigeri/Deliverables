@@ -12,3 +12,14 @@ body {
   padding: 2rem;
   text-align: center;
 }
+
+/* Responsive: base */
+@media (max-width: 640px) {
+  body {
+    font-size: 14px;
+  }
+
+  #root {
+    padding: 1rem;
+  }
+}
