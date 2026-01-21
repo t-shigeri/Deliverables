@@ -1,0 +1,307 @@
+/* Aboutだけは base.css の #root{text-align:center;} を上書きして読みやすくする */
+.digest {
+    width: min(1100px, 92vw);
+    margin: 0 auto;
+    padding: 20px 0 88px;
+    text-align: left;
+    /* ←重要 */
+}
+
+.digest a {
+    color: inherit;
+}
+
+/* HERO */
+.digest-hero {
+    min-height: 78vh;
+    display: grid;
+    align-content: center;
+    padding: 44px 0 28px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.digest-kicker {
+    letter-spacing: 0.22em;
+    font-size: 12px;
+    margin: 0 0 14px;
+    opacity: 0.7;
+}
+
+.digest-title {
+    font-size: clamp(54px, 8.5vw, 92px);
+    line-height: 0.95;
+    margin: 0 0 16px;
+}
+
+.digest-lead {
+    max-width: 60ch;
+    font-size: 16px;
+    line-height: 1.9;
+    margin: 0 0 22px;
+    opacity: 0.92;
+}
+
+.digest-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 0 0 26px;
+}
+
+.digest-tag {
+    border: 1px solid rgba(0, 0, 0, 0.14);
+    padding: 8px 12px;
+    border-radius: 999px;
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    opacity: 0.9;
+}
+
+.digest-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    width: fit-content;
+    letter-spacing: 0.22em;
+    font-size: 11px;
+    padding-bottom: 2px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.25);
+    opacity: 0.85;
+}
+
+/* Sections */
+.digest-section {
+    padding: 52px 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.digest-section-head {
+    display: grid;
+    gap: 10px;
+    margin-bottom: 22px;
+}
+
+.digest-section-title {
+    font-size: 13px;
+    letter-spacing: 0.18em;
+    margin: 0;
+    opacity: 0.7;
+}
+
+.digest-section-sub {
+    margin: 0;
+    font-size: 22px;
+    line-height: 1.5;
+}
+
+.digest-body {
+    display: grid;
+    gap: 14px;
+    max-width: 74ch;
+}
+
+.digest-text {
+    margin: 0;
+    line-height: 1.9;
+    opacity: 0.92;
+}
+
+.digest-more {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    width: fit-content;
+    letter-spacing: 0.14em;
+    font-size: 12px;
+    padding-bottom: 2px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.25);
+    opacity: 0.9;
+}
+
+/* VALUE Cards */
+.digest-grid {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 14px;
+}
+
+.digest-card {
+    grid-column: span 6;
+    border: 1px solid rgba(0, 0, 0, 0.12);
+    border-radius: 16px;
+    padding: 18px 18px 16px;
+    background: rgba(0, 0, 0, 0.02);
+}
+
+.digest-card-title {
+    margin: 0 0 10px;
+    font-size: 16px;
+}
+
+.digest-card-text {
+    margin: 0;
+    line-height: 1.8;
+    font-size: 14px;
+    opacity: 0.88;
+}
+
+/* Split area */
+.digest-split {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 18px;
+    align-items: start;
+}
+
+.digest-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 14px;
+    display: grid;
+    gap: 10px;
+    opacity: 0.92;
+}
+
+.digest-bullet {
+    width: 10px;
+    height: 10px;
+    border: 1px solid rgba(0, 0, 0, 0.28);
+    border-radius: 999px;
+    display: inline-block;
+    margin-right: 10px;
+    transform: translateY(1px);
+}
+
+/* GitHub profile card (Digest風) */
+.digest-profile-card {
+    border: 1px solid rgba(0, 0, 0, 0.12);
+    border-radius: 18px;
+    padding: 16px;
+    background: rgba(0, 0, 0, 0.02);
+}
+
+.digest-profile-top {
+    display: grid;
+    grid-template-columns: 56px 1fr;
+    gap: 12px;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+.digest-avatar {
+    width: 56px;
+    height: 56px;
+    border-radius: 999px;
+    overflow: hidden;
+    border: 1px solid rgba(0, 0, 0, 0.14);
+    background: white;
+}
+
+.digest-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.digest-avatar-skeleton {
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.06);
+}
+
+.digest-profile-name {
+    margin: 0;
+    font-size: 15px;
+}
+
+.digest-profile-handle {
+    margin: 4px 0 0;
+    font-size: 12px;
+    opacity: 0.65;
+    letter-spacing: 0.08em;
+}
+
+.digest-profile-stats p {
+    margin: 0 0 6px;
+    font-size: 14px;
+    opacity: 0.88;
+}
+
+.digest-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 8px;
+    padding: 10px 12px;
+    border-radius: 999px;
+    border: 1px solid rgba(0, 0, 0, 0.18);
+    font-size: 12px;
+    letter-spacing: 0.12em;
+    width: fit-content;
+}
+
+/* Responsive */
+@media (max-width: 860px) {
+    .digest-card {
+        grid-column: span 12;
+    }
+
+    .digest-split {
+        grid-template-columns: 1fr;
+    }
+
+    .digest-hero {
+        min-height: 70vh;
+    }
+}
+
+.digest-hero {
+    position: relative;
+    overflow: hidden;
+    /* はみ出し防止 */
+}
+
+.digest-hero-bg {
+    position: absolute;
+    inset: auto auto -18px -10px;
+    /* 左下にちょいはみ出す */
+    font-size: clamp(120px, 18vw, 240px);
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    opacity: 0.06;
+    /* うっすら */
+    pointer-events: none;
+    user-select: none;
+    line-height: 1;
+    white-space: nowrap;
+    z-index: 0;
+}
+
+.digest-hero>*:not(.digest-hero-bg) {
+    position: relative;
+    z-index: 1;
+}
+
+
+/* ふわっと出る基本状態 */
+.reveal {
+    opacity: 0;
+    transform: translateY(18px);
+    transition: opacity 700ms ease, transform 700ms ease;
+    will-change: opacity, transform;
+}
+
+/* 表示されたら */
+.reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* アニメ苦手な人向け（OS設定で軽減） */
+@media (prefers-reduced-motion: reduce) {
+    .reveal {
+        opacity: 1;
+        transform: none;
+        transition: none;
+    }
+}
