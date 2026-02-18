@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
-import "../style/aboutDigest.css"; // ← 新しく作るCSS
-
+import "../style/aboutDigest.css";
 export default function About() {
   const [githubUser, setGithubUser] = useState(null);
   const username = "t-shigeri";
@@ -63,9 +62,9 @@ export default function About() {
           <span className="digest-tag">FUKUOKA</span>
         </div>
 
-        <a className="digest-cta" href="#message">
+        {/* <a className="digest-cta" href="#message">
           SCROLL <span aria-hidden="true">↓</span>
-        </a>
+        </a> */}
       </header>
 
       {/* MESSAGE */}
@@ -81,9 +80,9 @@ export default function About() {
             小さな動き・余白・導線まで含めて “体験としてのUI” を意識して開発しています。
           </p>
 
-          <a className="digest-more" href="#value">
+          {/* <a className="digest-more" href="#value">
             VIEW MORE <span aria-hidden="true">→</span>
-          </a>
+          </a> */}
         </div>
       </section>
 
@@ -142,9 +141,9 @@ export default function About() {
               <li><span className="digest-bullet" /> API（fetch）</li>
             </ul>
 
-            <a className="digest-more" href="#profile">
+            {/* <a className="digest-more" href="#profile">
               VIEW MORE <span aria-hidden="true">→</span>
-            </a>
+            </a> */}
           </div>
 
           {/* GitHub profile */}
@@ -200,7 +199,7 @@ export default function About() {
 
         <div className="digest-body">
           <p className="digest-text">
-            映画 / ポケカ / アコースティックギター。作品づくりの気分転換にもなってます。
+            映画 / ポケカ / アコースティックギター / 読書 / 美術館巡り。作品づくりの気分転換にもなってます。
           </p>
         </div>
       </section>
