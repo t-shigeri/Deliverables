@@ -19,15 +19,24 @@ function Works() {
     <div className="works-wrapper">
       <h2 className="works-title">WORKS</h2>
       <div className="works-list">
-        {works.map((work) => (
-          <WorkCard
-            key={work.id || work.title} // IDがなければtitleを代用
-            image={work.image}
-            title={work.title}
-            description={work.description}
-            link={work.link}
-          />
-        ))}
+        {works.map((work) => {
+          const isComingSoon = work.status === 'coming';
+
+          return (
+            <WorkCard
+              key={work.id || work.title}
+              image={work.image}
+              title={work.title}
+              description={
+                isComingSoon
+                  ? `${work.description}（現在　デプロイ前）`
+                  : work.description
+              }
+              link={isComingSoon ? null : work.link}
+              disabled={isComingSoon}
+            />
+          );
+        })}
       </div>
     </div>
   );

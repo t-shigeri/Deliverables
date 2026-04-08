@@ -9,6 +9,7 @@
         "image": "/assets/WashMapPC.png",
         "title": "WashMap",
         "description": "",
-        "link": "https://example.com/toilet-app"
+        "link": "https://example.com/toilet-app",
+        "status": "coming"
     }
 ]

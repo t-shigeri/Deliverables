@@ -199,7 +199,7 @@ export default function About() {
 
         <div className="digest-body">
           <p className="digest-text">
-            映画 / ポケカ / アコースティックギター / 読書 / 美術館巡り。作品づくりの気分転換にもなってます。
+            映画鑑賞 / 読書 / 美術館巡り。人がつくる魅力について考えるのが好きです。
           </p>
         </div>
       </section>
