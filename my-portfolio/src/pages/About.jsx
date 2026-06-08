@@ -199,7 +199,8 @@ export default function About() {
 
         <div className="digest-body">
           <p className="digest-text">
-            映画鑑賞 / 読書 / 美術館巡り。人がつくる魅力について考えるのが好きです。
+            読書/映画鑑賞/音楽を聴く/
+            
           </p>
         </div>
       </section>
